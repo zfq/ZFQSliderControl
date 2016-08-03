@@ -17,15 +17,15 @@
 		1F21A66F1D4B0D6B00A92941 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F21A6621D4B0D6B00A92941 /* NSLayoutConstraint+MASDebugAdditions.m */; };
 		1F21A6701D4B0D6B00A92941 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F21A6641D4B0D6B00A92941 /* View+MASAdditions.m */; };
 		1F21A6711D4B0D6B00A92941 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F21A6671D4B0D6B00A92941 /* ViewController+MASAdditions.m */; };
-		1F2EE1151D476115009F2A68 /* ZFQSliderNumLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2EE1141D476115009F2A68 /* ZFQSliderNumLayer.m */; };
 		1F418EA91D450C1E00E12182 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F418EA81D450C1E00E12182 /* main.m */; };
 		1F418EAC1D450C1E00E12182 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F418EAB1D450C1E00E12182 /* AppDelegate.m */; };
 		1F418EAF1D450C1E00E12182 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F418EAE1D450C1E00E12182 /* ViewController.m */; };
 		1F418EB21D450C1E00E12182 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F418EB01D450C1E00E12182 /* Main.storyboard */; };
 		1F418EB41D450C1E00E12182 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F418EB31D450C1E00E12182 /* Assets.xcassets */; };
 		1F418EB71D450C1E00E12182 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F418EB51D450C1E00E12182 /* LaunchScreen.storyboard */; };
-		1F418EC01D450C6800E12182 /* ZFQSliderControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F418EBF1D450C6800E12182 /* ZFQSliderControl.m */; };
-		1F620EEB1D472ADC00577B41 /* ZFQTumbLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F620EEA1D472ADC00577B41 /* ZFQTumbLayer.m */; };
+		1F984F641D520DC500B6E04A /* ZFQSliderControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F984F5F1D520DC500B6E04A /* ZFQSliderControl.m */; };
+		1F984F651D520DC500B6E04A /* ZFQSliderNumLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F984F611D520DC500B6E04A /* ZFQSliderNumLayer.m */; };
+		1F984F661D520DC500B6E04A /* ZFQTumbLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F984F631D520DC500B6E04A /* ZFQTumbLayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,8 +54,6 @@
 		1F21A6651D4B0D6B00A92941 /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
 		1F21A6661D4B0D6B00A92941 /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+MASAdditions.h"; sourceTree = "<group>"; };
 		1F21A6671D4B0D6B00A92941 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
-		1F2EE1131D476115009F2A68 /* ZFQSliderNumLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFQSliderNumLayer.h; sourceTree = "<group>"; };
-		1F2EE1141D476115009F2A68 /* ZFQSliderNumLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFQSliderNumLayer.m; sourceTree = "<group>"; };
 		1F418EA41D450C1E00E12182 /* 字体大小控件.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "字体大小控件.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F418EA81D450C1E00E12182 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1F418EAA1D450C1E00E12182 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -66,10 +64,12 @@
 		1F418EB31D450C1E00E12182 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F418EB61D450C1E00E12182 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1F418EB81D450C1E00E12182 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1F418EBE1D450C6800E12182 /* ZFQSliderControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFQSliderControl.h; sourceTree = "<group>"; };
-		1F418EBF1D450C6800E12182 /* ZFQSliderControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFQSliderControl.m; sourceTree = "<group>"; };
-		1F620EE91D472ADC00577B41 /* ZFQTumbLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFQTumbLayer.h; sourceTree = "<group>"; };
-		1F620EEA1D472ADC00577B41 /* ZFQTumbLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFQTumbLayer.m; sourceTree = "<group>"; };
+		1F984F5E1D520DC500B6E04A /* ZFQSliderControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFQSliderControl.h; sourceTree = "<group>"; };
+		1F984F5F1D520DC500B6E04A /* ZFQSliderControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFQSliderControl.m; sourceTree = "<group>"; };
+		1F984F601D520DC500B6E04A /* ZFQSliderNumLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFQSliderNumLayer.h; sourceTree = "<group>"; };
+		1F984F611D520DC500B6E04A /* ZFQSliderNumLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFQSliderNumLayer.m; sourceTree = "<group>"; };
+		1F984F621D520DC500B6E04A /* ZFQTumbLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFQTumbLayer.h; sourceTree = "<group>"; };
+		1F984F631D520DC500B6E04A /* ZFQTumbLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFQTumbLayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,17 +134,12 @@
 		1F418EA61D450C1E00E12182 /* 字体大小控件 */ = {
 			isa = PBXGroup;
 			children = (
+				1F984F5D1D520DC500B6E04A /* ZFQSliderControl */,
 				1F21A64E1D4B0D6B00A92941 /* Masonry */,
 				1F418EAA1D450C1E00E12182 /* AppDelegate.h */,
 				1F418EAB1D450C1E00E12182 /* AppDelegate.m */,
 				1F418EAD1D450C1E00E12182 /* ViewController.h */,
 				1F418EAE1D450C1E00E12182 /* ViewController.m */,
-				1F418EBE1D450C6800E12182 /* ZFQSliderControl.h */,
-				1F418EBF1D450C6800E12182 /* ZFQSliderControl.m */,
-				1F620EE91D472ADC00577B41 /* ZFQTumbLayer.h */,
-				1F620EEA1D472ADC00577B41 /* ZFQTumbLayer.m */,
-				1F2EE1131D476115009F2A68 /* ZFQSliderNumLayer.h */,
-				1F2EE1141D476115009F2A68 /* ZFQSliderNumLayer.m */,
 				1F418EB01D450C1E00E12182 /* Main.storyboard */,
 				1F418EB31D450C1E00E12182 /* Assets.xcassets */,
 				1F418EB51D450C1E00E12182 /* LaunchScreen.storyboard */,
@@ -160,6 +155,19 @@
 				1F418EA81D450C1E00E12182 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1F984F5D1D520DC500B6E04A /* ZFQSliderControl */ = {
+			isa = PBXGroup;
+			children = (
+				1F984F5E1D520DC500B6E04A /* ZFQSliderControl.h */,
+				1F984F5F1D520DC500B6E04A /* ZFQSliderControl.m */,
+				1F984F601D520DC500B6E04A /* ZFQSliderNumLayer.h */,
+				1F984F611D520DC500B6E04A /* ZFQSliderNumLayer.m */,
+				1F984F621D520DC500B6E04A /* ZFQTumbLayer.h */,
+				1F984F631D520DC500B6E04A /* ZFQTumbLayer.m */,
+			);
+			path = ZFQSliderControl;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,10 +252,10 @@
 				1F21A6701D4B0D6B00A92941 /* View+MASAdditions.m in Sources */,
 				1F21A6681D4B0D6B00A92941 /* MASCompositeConstraint.m in Sources */,
 				1F21A66F1D4B0D6B00A92941 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				1F984F641D520DC500B6E04A /* ZFQSliderControl.m in Sources */,
 				1F21A66A1D4B0D6B00A92941 /* MASConstraintMaker.m in Sources */,
-				1F620EEB1D472ADC00577B41 /* ZFQTumbLayer.m in Sources */,
-				1F418EC01D450C6800E12182 /* ZFQSliderControl.m in Sources */,
-				1F2EE1151D476115009F2A68 /* ZFQSliderNumLayer.m in Sources */,
+				1F984F651D520DC500B6E04A /* ZFQSliderNumLayer.m in Sources */,
+				1F984F661D520DC500B6E04A /* ZFQTumbLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
