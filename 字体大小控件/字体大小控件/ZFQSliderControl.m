@@ -35,14 +35,8 @@
         CGFloat width = 34;
         _thumbLayer = [ZFQTumbLayer layer];
         _thumbLayer.bounds = CGRectMake(0, 0, width, width);
-        _thumbLayer.cornerRadius = width/2;
-        _thumbLayer.borderWidth = 1;
-        _thumbLayer.borderColor = [UIColor lightGrayColor].CGColor;
-        _thumbLayer.shadowColor = [UIColor grayColor].CGColor;
-        _thumbLayer.shadowOffset = CGSizeMake(0, 1);
-        _thumbLayer.shadowOpacity = 0.5;
-        _thumbLayer.backgroundColor = [UIColor whiteColor].CGColor;
         _thumbLayer.sliderControl = self;
+        _thumbLayer.contentsScale = [UIScreen mainScreen].scale;
         [layer addSublayer:_thumbLayer];
         
         _currIndex = 0;
@@ -85,8 +79,13 @@
     if (!_numbers) {
         _numbers = [[NSMutableArray alloc] initWithCapacity:_stageCount];
     }
+    
     CATextLayer *tempTextLayer = nil;
     CALayer *layer = self.layer;
+    
+    [CATransaction begin];
+    [CATransaction setDisableActions:YES];
+    
     for (NSInteger i = 0; i < _stageCount; i++) {
         if (i>= _numbers.count) {
             CATextLayer *textLayer = [self textLayerWithStr:_numberStrs[i]];
@@ -96,8 +95,11 @@
         tempTextLayer = _numbers[i];
         //修改位置
         tempTextLayer.string = _numberStrs[i];
+        
         tempTextLayer.position = CGPointMake(i * _averageValue, h+tempTextLayer.bounds.size.height/2);
     }
+    
+    [CATransaction commit];
 }
 
 - (CATextLayer *)textLayerWithStr:(NSString *)str
@@ -122,7 +124,29 @@
 {
     _numberStrs = [numberStrs copy];
     _stageCount = numberStrs.count;
+    
+    //先remove所有的CATextLayer
+    for (CATextLayer *tempLayer in _numbers) {
+        [tempLayer removeFromSuperlayer];
+    }
+    [_numbers removeAllObjects];
+    
     [self setNeedsLayout];
+}
+
+- (void)setThumbWidth:(CGFloat)thumbWidth
+{
+    thumbWidth = (thumbWidth < 0 ? 0 : thumbWidth);
+    _thumbWidth = thumbWidth;
+    
+    [CATransaction begin];
+    [CATransaction setDisableActions:YES];
+    _thumbLayer.bounds = CGRectMake(0, 0, _thumbWidth, _thumbWidth);
+    _thumbLayer.cornerRadius = thumbWidth/2;
+    [CATransaction commit];
+    
+    [_thumbLayer setNeedsDisplay];
+    [_thumbLayer displayIfNeeded];
 }
 
 - (BOOL)beginTrackingWithTouch:(UITouch *)touch withEvent:(nullable UIEvent *)event
@@ -169,7 +193,7 @@
     return YES;
 }
 
-- (void)endTrackingWithTouch:(nullable UITouch *)touch withEvent:(nullable UIEvent *)event // touch is sometimes nil if cancelTracking calls through to this.
+- (void)endTrackingWithTouch:(nullable UITouch *)touch withEvent:(nullable UIEvent *)event
 {
     _thumbLayer.hightlighted = false;
 }
@@ -177,6 +201,18 @@
 - (void)cancelTrackingWithEvent:(nullable UIEvent *)event
 {
     _thumbLayer.hightlighted = false;
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    CGPoint tapP = [touches.anyObject locationInView:self];
+    if (CGRectContainsPoint(_thumbLayer.frame, tapP)) {
+        _thumbLayer.hightlighted = YES;
+    } else {
+        _thumbLayer.hightlighted = NO;
+    }
+    
+    [super touchesBegan:touches withEvent:event];
 }
 
 @end

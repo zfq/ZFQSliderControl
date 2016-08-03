@@ -24,4 +24,6 @@
 @property (nonatomic,copy) NSArray<NSString *> *numberStrs;   //数组30% 40% 50%
 @property (nonatomic,assign) BOOL allowTapToChange; //是否允许点击更改，默认是YES
 
+@property (nonatomic,assign) CGFloat thumbWidth;    //默认是34
+
 @end

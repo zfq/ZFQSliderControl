@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "ZFQSliderControl.h"
+#import "Masonry.h"
 
 @interface ViewController ()
 @property (nonatomic,strong) ZFQSliderControl *stateControl;
@@ -19,17 +20,26 @@
 {
     [super viewDidLoad];
     
+    UIView *sv = self.view;
     _stateControl = [[ZFQSliderControl alloc] initWithFrame:CGRectZero];
-    _stateControl.backgroundColor = [UIColor redColor];
-//    _stateControl.numberStrs = @[@"30%",@"40%",@"50%",@"60%",@"70%"];
-    [self.view addSubview:_stateControl];
-}
-
-- (void)viewDidLayoutSubviews
-{
-    CGFloat l = 40;
-    CGSize size = self.view.bounds.size;
-    _stateControl.frame = CGRectMake(l, 40, size.width - 2 * l, 40);
+//    _stateControl.backgroundColor = [UIColor redColor];
+    _stateControl.numberStrs = @[@"30%",@"40%",@"50%",@"60%",@"70%"];
+    _stateControl.thumbWidth = 30;
+    [sv addSubview:_stateControl];
+    
+    CGFloat marginLeft = 20;
+    [_stateControl mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(sv).offset(30);
+        make.left.equalTo(sv).offset(marginLeft);
+        make.right.equalTo(sv).offset(-marginLeft);
+        make.height.mas_equalTo(40);
+    }];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        
+        _stateControl.numberStrs = @[@"30%",@"40%",@"50%"];
+    });
 }
 
 - (void)didReceiveMemoryWarning {

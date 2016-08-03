@@ -21,7 +21,7 @@
     
     //更新下方的数据位置
     CGFloat strLen = 20;
-     NSDictionary *attr = @{
+    NSDictionary *attr = @{
                             NSForegroundColorAttributeName:[UIColor blackColor],
                             NSFontAttributeName:[UIFont systemFontOfSize:14]
                             };
