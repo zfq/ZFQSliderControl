@@ -3,7 +3,7 @@
 //  字体大小控件
 //
 //  Created by _ on 16/7/26.
-//  Copyright © 2016年 NXB. All rights reserved.
+//  Copyright © 2016年 zhaofuqiang. All rights reserved.
 //
 
 #import "ZFQTumbLayer.h"
@@ -14,12 +14,6 @@
 - (void)drawInContext:(CGContextRef)ctx
 {
     UIGraphicsPushContext(ctx);
-    
-    CGContextSetAllowsAntialiasing(ctx, true);
-    // 允许平滑
-    CGContextSetShouldAntialias(ctx, true);
-    // 设置插值质量
-    CGContextSetInterpolationQuality(ctx,kCGInterpolationHigh);
     
     CGRect thumbFrame = CGRectInset(self.bounds, 2, 2);
     CGFloat radius = thumbFrame.size.height/2;
@@ -39,7 +33,7 @@
     CGContextStrokePath(ctx);
     
     if (_hightlighted) {
-        CGContextSetFillColorWithColor(ctx, [UIColor colorWithWhite:0 alpha:0.1].CGColor); //[UIColor colorWithWhite:0 alpha:0.1].CGColor
+        CGContextSetFillColorWithColor(ctx, [UIColor colorWithWhite:0 alpha:0.1].CGColor);
         CGContextAddPath(ctx, path.CGPath);
         CGContextFillPath(ctx);
     }

@@ -3,7 +3,7 @@
 //  字体大小控件
 //
 //  Created by _ on 16/7/24.
-//  Copyright © 2016年 NXB. All rights reserved.
+//  Copyright © 2016年 zhaofuqiang. All rights reserved.
 //
 
 #import "ZFQSliderControl.h"
@@ -190,7 +190,9 @@
         if (currPos < 0 || currPos > _stageCount) {
             return NO;
         }
-        [self moveThumbToIndex:currPos];
+        if (_currIndex != currPos) {
+            [self moveThumbToIndex:currPos];
+        }
         return YES;
     } else {
         if (CGRectContainsPoint(_thumbLayer.frame, _preLocation)) {
