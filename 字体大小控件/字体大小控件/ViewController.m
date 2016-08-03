@@ -22,8 +22,7 @@
     
     UIView *sv = self.view;
     _stateControl = [[ZFQSliderControl alloc] initWithFrame:CGRectZero];
-//    _stateControl.backgroundColor = [UIColor redColor];
-    _stateControl.numberStrs = @[@"30%",@"40%",@"50%",@"60%",@"70%"];
+    _stateControl.numberStrs = @[@"30%"]; //@[@"30%",@"40%",@"50%",@"60%",@"70%"];
     _stateControl.thumbWidth = 30;
     [sv addSubview:_stateControl];
     
@@ -36,9 +35,8 @@
     }];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        
-        
-        _stateControl.numberStrs = @[@"30%",@"40%",@"50%"];
+        _stateControl.numberStrs = @[@"30%",@"",@"50%"];
+        _stateControl.currIndex = 1;
     });
 }
 

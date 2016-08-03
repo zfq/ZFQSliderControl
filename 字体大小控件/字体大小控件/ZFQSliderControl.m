@@ -29,7 +29,8 @@
     if (self) {
         CALayer *layer = self.layer;
         _sliderLayer = [CAShapeLayer layer];
-        _sliderLayer.backgroundColor = [UIColor colorWithRed:204/255.0f green:204/255.0f blue:204/255.0f alpha:1].CGColor;
+        _lineColor = [UIColor colorWithRed:0.8f green:0.8f blue:0.8f alpha:1];
+
         [layer addSublayer:_sliderLayer];
         
         CGFloat width = 34;
@@ -69,11 +70,14 @@
         _averageValue = w/(_stageCount-1);
     }
     
-    CGFloat sliderHeight = 1;
+    CGFloat sliderHeight = h;
     CGSize size = self.bounds.size;
     _sliderLayer.bounds = CGRectMake(0, 0, size.width, sliderHeight);
     _sliderLayer.position = CGPointMake(size.width/2, size.height/2);
     [self moveThumbToIndex:_currIndex];
+    
+    //画刻度
+    [self scaleMark];
     
     //更新UI
     if (!_numbers) {
@@ -102,6 +106,8 @@
     [CATransaction commit];
 }
 
+#pragma mark - private
+
 - (CATextLayer *)textLayerWithStr:(NSString *)str
 {
     CATextLayer *textLayer = [CATextLayer layer];
@@ -113,6 +119,27 @@
     textLayer.contentsScale = [UIScreen mainScreen].scale;
     return textLayer;
 }
+
+///绘制刻度路径
+- (void)scaleMark
+{
+    CGMutablePathRef path = CGPathCreateMutable();
+    NSInteger count = _numberStrs.count;
+    CGFloat scaleHeight = 4;
+    CGFloat centerY = _sliderLayer.bounds.size.height/2;
+    for (NSInteger i = 0; i < count; i++) {
+        CGPathMoveToPoint(path, NULL, i * _averageValue, centerY);
+        CGPathAddLineToPoint(path, NULL, i * _averageValue, centerY - scaleHeight);
+    }
+    CGPathMoveToPoint(path, NULL, 0, centerY);
+    CGPathAddLineToPoint(path, NULL, _sliderLayer.bounds.size.width, centerY);
+    
+    _sliderLayer.strokeColor = _lineColor.CGColor;
+    _sliderLayer.path = path;
+    CGPathRelease(path);
+}
+
+#pragma mark - setter
 
 - (void)setCurrIndex:(NSInteger)currIndex
 {
@@ -148,6 +175,8 @@
     [_thumbLayer setNeedsDisplay];
     [_thumbLayer displayIfNeeded];
 }
+
+#pragma mark - overwrite
 
 - (BOOL)beginTrackingWithTouch:(UITouch *)touch withEvent:(nullable UIEvent *)event
 {
