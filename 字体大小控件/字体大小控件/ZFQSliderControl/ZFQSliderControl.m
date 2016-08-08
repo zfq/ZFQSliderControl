@@ -33,13 +33,14 @@
 
         [layer addSublayer:_sliderLayer];
         
-        CGFloat width = 34;
+        _thumbWidth = 34;
         _thumbLayer = [ZFQTumbLayer layer];
-        _thumbLayer.bounds = CGRectMake(0, 0, width, width);
+        _thumbLayer.bounds = CGRectMake(0, 0, _thumbWidth, _thumbWidth);
         _thumbLayer.sliderControl = self;
         _thumbLayer.contentsScale = [UIScreen mainScreen].scale;
         _thumbLayer.rasterizationScale = _thumbLayer.contentsScale;
         [layer addSublayer:_thumbLayer];
+        [_thumbLayer setNeedsDisplay];
         
         _currIndex = 0;
         _stageCount = 2;
