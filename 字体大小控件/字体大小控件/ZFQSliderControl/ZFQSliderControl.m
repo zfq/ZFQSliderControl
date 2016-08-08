@@ -38,6 +38,7 @@
         _thumbLayer.bounds = CGRectMake(0, 0, width, width);
         _thumbLayer.sliderControl = self;
         _thumbLayer.contentsScale = [UIScreen mainScreen].scale;
+        _thumbLayer.rasterizationScale = _thumbLayer.contentsScale;
         [layer addSublayer:_thumbLayer];
         
         _currIndex = 0;
