@@ -30,7 +30,7 @@
         CALayer *layer = self.layer;
         _sliderLayer = [CAShapeLayer layer];
         _lineColor = [UIColor colorWithRed:0.8f green:0.8f blue:0.8f alpha:1];
-
+        
         [layer addSublayer:_sliderLayer];
         
         _thumbWidth = 34;
@@ -246,6 +246,15 @@
     }
     
     [super touchesBegan:touches withEvent:event];
+}
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+{
+    if ([self.sliderDelegate respondsToSelector:@selector(sliderBar:gestureRecognizerShouldBegin:)]) {
+        return [self.sliderDelegate sliderBar:self gestureRecognizerShouldBegin:gestureRecognizer];
+    } else {
+        return YES;
+    }
 }
 
 @end
