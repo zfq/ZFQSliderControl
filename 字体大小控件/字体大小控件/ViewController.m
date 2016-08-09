@@ -23,7 +23,7 @@
     UIView *sv = self.view;
     _stateControl = [[ZFQSliderControl alloc] initWithFrame:CGRectZero];
     _stateControl.numberStrs = @[@"30%",@"40%",@"50%",@"60%",@"70%"];
-    _stateControl.thumbWidth = 30;
+//    _stateControl.thumbWidth = 30;
     _stateControl.sliderDelegate = self;
     [sv addSubview:_stateControl];
     
