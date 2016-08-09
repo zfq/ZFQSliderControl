@@ -15,6 +15,6 @@ Pod::Spec.new do |s|
 	s.platform     = :ios
 	s.platform     = :ios, "7.0"
 	s.requires_arc = true
-	s.source_files = 'ZFQSliderControl/','ZFQSliderControl/字体大小控件/字体大小控件/ZFQSliderControl/*.{h,m}'
+	s.source_files = 'ZFQSliderControl/','字体大小控件/字体大小控件/ZFQSliderControl/*.{h,m}'
 	
 end
