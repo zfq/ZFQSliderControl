@@ -47,4 +47,5 @@
     [self setNeedsDisplay];
     [self displayIfNeeded];
 }
+
 @end
