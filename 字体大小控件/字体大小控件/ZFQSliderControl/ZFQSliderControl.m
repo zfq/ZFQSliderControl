@@ -15,7 +15,7 @@
     
     CGFloat _leftPadding;
     CAShapeLayer *_sliderLayer;   //横线
-    ZFQTumbLayer *_thumbLayer;   //圆形按钮
+    ZFQTumbLayer *_thumbLayer;    //圆形按钮
     CGPoint _preLocation;
     CGFloat _averageValue;  //平均值
     NSMutableArray<CATextLayer *> *_numbers;

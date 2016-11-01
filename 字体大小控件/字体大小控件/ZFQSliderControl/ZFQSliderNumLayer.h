@@ -9,5 +9,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 @interface ZFQSliderNumLayer : CALayer
+
 @property (nonatomic,copy) NSArray<NSString *> *numberStrs;   //数组30% 40% 50%
+
 @end
